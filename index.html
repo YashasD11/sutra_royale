@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sutra Royale - Luxury Silk Sarees</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Great+Vibes&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000; /* Black royal background */
+      color: #f5f0d0; /* Golden beige text */
+      font-family: 'Cinzel', serif;
+      overflow-x: hidden;
+    }
+
+    /* Subtle animated golden pattern background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://www.transparenttextures.com/patterns/golden-scale.png');
+      opacity: 0.08;
+      z-index: -1;
+      animation: movePattern 40s linear infinite;
+    }
+
+    @keyframes movePattern {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
+
+    /* Animated Golden Border Effect */
+    .gold-border {
+      border: 4px solid;
+      border-image: linear-gradient(90deg, #b8860b, #ffd700, #b8860b) 1;
+      animation: borderGlow 5s linear infinite;
+    }
+
+    @keyframes borderGlow {
+      0% { border-image: linear-gradient(90deg, #b8860b, #ffd700, #b8860b) 1; }
+      50% { border-image: linear-gradient(90deg, #ffd700, #fff5b1, #ffd700) 1; }
+      100% { border-image: linear-gradient(90deg, #b8860b, #ffd700, #b8860b) 1; }
+    }
+
+    header {
+      text-align: center;
+      padding: 30px;
+      margin: 20px;
+      border-radius: 20px;
+    }
+
+    header img {
+      width: 150px;
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 5px #d4af37); }
+      to { filter: drop-shadow(0 0 20px #ffd700); }
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 10px 0 5px;
+      color: #d4af37;
+    }
+
+    header p {
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.6rem;
+      color: #e8d18f;
+    }
+
+    .catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      padding: 50px;
+    }
+
+    .saree {
+      background: rgba(20, 10, 0, 0.9);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(212,175,55,0.3);
+      transition: transform 0.4s, box-shadow 0.4s;
+    }
+
+    .saree:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 30px rgba(255,215,0,0.6);
+    }
+
+    .saree img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      border-bottom: 2px solid #a27c39;
+    }
+
+    .saree-details {
+      padding: 20px;
+    }
+
+    .saree-details h3 {
+      font-size: 1.6rem;
+      color: #ffd700;
+      margin-bottom: 10px;
+    }
+
+    .saree-details p {
+      margin: 6px 0;
+      color: #e8d18f;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, #b8860b, #ffd700);
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .buy-btn:hover {
+      background: linear-gradient(135deg, #ffd700, #b8860b);
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin: 20px;
+      border-radius: 20px;
+    }
+
+    footer h2 {
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="gold-border">
+    <img src="images/logo.jpg" alt="Sutra Royale Logo">
+    <h1>Sutra Royale</h1>
+    <p>Luxury Silk Sarees – Woven with Heritage & Elegance</p>
+  </header>
+
+  <section class="catalog" id="catalog"></section>
+
+  <footer class="gold-border">
+    <h2>Contact Us</h2>
+    <p><strong>Brand:</strong> Sutra Royale</p>
+    <p><strong>Phone/WhatsApp:</strong> <a href="https://wa.me/916363654928">+91 6363654928</a></p>
+    <p><strong>Address:</strong> Tumkur</p>
+  </footer>
+
+  <script>
+    const PHONE = "916363654928";
+
+    const CATALOG = [
+      {
+        id: "SR-001",
+        name: "Banaras Silk Saree",
+        price: 24999,
+        image: "images/banaras-silk.jpg",
+        color: "Gold/Maroon",
+        fabric: "Banaras Silk",
+        occasion: "Wedding",
+        description: "Exquisite Banaras silk saree with intricate zari weaving, perfect for weddings and grand occasions."
+      },
+      {
+        id: "SR-002",
+        name: "Mysore Silk Saree",
+        price: 15999,
+        image: "images/mysore-silk.webp",
+        color: "Royal Blue",
+        fabric: "Mysore Silk",
+        occasion: "Festive",
+        description: "Authentic Mysore silk saree with rich sheen and lightweight elegance, ideal for festive celebrations."
+      },
+      {
+        id: "SR-003",
+        name: "Premium Handloom Silk Saree",
+        price: 18999,
+        image: "images/handloom-silk.jpg",
+        color: "Emerald Green",
+        fabric: "Handloom Silk",
+        occasion: "Traditional",
+        description: "Premium handloom silk saree with artisanal weaving techniques, representing timeless Indian heritage."
+      }
+    ];
+
+    const catalogSection = document.getElementById('catalog');
+
+    CATALOG.forEach(item => {
+      const whatsappLink = `https://wa.me/${PHONE}?text=Hello%20Sutra%20Royale!%20I%20am%20interested%20in%20buying%20the%20${encodeURIComponent(item.name)}%20(Price:%20₹${item.price}).`;
+      const sareeCard = document.createElement('div');
+      sareeCard.classList.add('saree', 'gold-border');
+      sareeCard.innerHTML = `
+        <img src="${item.image}" alt="${item.name}">
+        <div class="saree-details">
+          <h3>${item.name}</h3>
+          <p><strong>Price:</strong> ₹${item.price}</p>
+          <p><strong>Fabric:</strong> ${item.fabric}</p>
+          <p><strong>Color:</strong> ${item.color}</p>
+          <p><strong>Occasion:</strong> ${item.occasion}</p>
+          <p>${item.description}</p>
+          <a class="buy-btn" href="${whatsappLink}" target="_blank">Buy on WhatsApp</a>
+        </div>
+      `;
+      catalogSection.appendChild(sareeCard);
+    });
+  </script>
+
+</body>
+</html>
